@@ -1,0 +1,5 @@
+exchange: 'binanceus'
+apiKey: 'KEY'
+apiSecret: 'SECRET'
+timeout: 30000
+enableRateLimit: True
