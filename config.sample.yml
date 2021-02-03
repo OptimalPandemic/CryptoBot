@@ -3,3 +3,4 @@ apiKey: 'KEY'
 apiSecret: 'SECRET'
 timeout: 30000
 enableRateLimit: True
+symbols: ['BTC/USDT', 'ADA/BTC', 'ADA/USDT']
