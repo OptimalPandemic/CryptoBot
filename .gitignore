@@ -6,3 +6,5 @@ include/
 lib*
 share/
 */__pycache__/*
+build/
+dist/
