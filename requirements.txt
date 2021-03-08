@@ -1,4 +1,8 @@
+setuptools-rust~=0.11.6
 ccxt~=1.41.45
 pyyaml~=5.4.1
 pyinstaller~=4.2
 django~=3.1.7
+djangorestframework~=3.12.2
+PyJWT==1.7.1
+djangorestframework-simplejwt==4.4.0
