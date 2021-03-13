@@ -35,4 +35,3 @@ class AssetViewSet(viewsets.ModelViewSet):
     serializer_class = AssetSerializer
     permission_classes = [ permissions.IsAdminUser ]
 
-

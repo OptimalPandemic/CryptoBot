@@ -34,6 +34,7 @@ class Trader:
         self._markets = {}
         self._symbols = []
         self._balance = {}
+        self._shouldRun = True
 
     @property
     def markets(self):
@@ -46,6 +47,14 @@ class Trader:
     @property
     def balance(self):
         return self._balance
+
+    @shouldRun.setter
+    def shouldRun(self, shouldRun):
+        self._shouldRun = shouldRun
+
+    @sandboxMode.setter
+    def sandboxMode(self, sandboxMode):
+        self._sandboxMode = sandboxMode
 
     async def prepare(self):
         logging.info('Loading markets and symbols...')
