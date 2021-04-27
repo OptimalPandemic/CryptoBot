@@ -1,17 +1,14 @@
-import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web.backend.backend.settings')
-from web.backend.crypto.models import Asset, Order, Setting
 import asyncio
 import argparse
 import logging
 
 import yaml
 from trader.trader import Trader
-from constance import config
 
+t = Trader()
 
 async def main():
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
     logging.info('Starting up.....')
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', default='config.yml', help='YAML file for configuration information')
@@ -22,20 +19,15 @@ async def main():
 
     t = Trader(config)
     await t.prepare()
+    await t.run()
+    await t.close()
 
-    while True:
-        # Check we're still allowed to trade
-        t.shouldRun(config.enabled)
-        if not t.shouldRun(shouldRun):
-            continue
-
-        # Set sandbox mode
-        t.sandboxMode(config.sandboxMode)
-
-        await t.trade()
+async def close():
+    await t.close()
 
 if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
+        asyncio.run(close())
         logging.info("Stopping.....")

@@ -1,8 +1,3 @@
-DESTDIR=
-SYSCONFDIR=/etc
-PREFIX=/usr
-SYSTEMCTL:=$(shell which systemctl)
-
 all: build run
 .PHONY: all
 
@@ -11,3 +6,6 @@ build:
 
 run: 
 	docker run -p 8080:80 trader
+
+clean:
+	docker system prune --all
